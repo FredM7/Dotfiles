@@ -4,6 +4,8 @@
 
 ## Stow
 
+> It's very important to note that this `Dotfiles` direcotry must be in your $HOME directory. Otherwise stow will just not do anything.
+
 I use GNU Stow to manage my dotfiles.
 
 If you don't have it already, install it. I use Arch, BTW.
@@ -12,11 +14,13 @@ If you don't have it already, install it. I use Arch, BTW.
 sudo pacman -Sy stow
 ```
 
-Once it is installed, it's as simple as running this inside the `Dotfiles` direcotry.
+Once it is installed, it's as simple as running this inside the `Dotfiles` directory.
 
 ```
 stow .
 ```
+
+It's important to NOTE that the structure in this `Dotfiles` directory MUST be layed out as your HOME directory would ahve been layed out.
 
 ## Git
 
