@@ -20,6 +20,12 @@ Once it is installed, it's as simple as running this inside the `Dotfiles` direc
 stow .
 ```
 
+This tells `stow` to move any of the conflicting files into the `Dotfiles` directory, allowing it to create conflicting symbolic links. Be CAREFUL though, this OVERRIDES.
+
+```
+stow --adopt .
+```
+
 It's important to NOTE that the structure in this `Dotfiles` directory MUST be layed out as your HOME directory would ahve been layed out.
 
 ## Git
