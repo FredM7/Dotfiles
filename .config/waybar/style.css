@@ -1,0 +1,44 @@
+window#waybar {
+  background-color: transparent;
+  color: #ffffff;
+}
+
+#custom-launcher, #custom-taskmanager {
+  font-size: 28px;
+  min-width: 40px;
+}
+
+#workspaces button, #workspaces button.active {
+  color: #ffffff;
+}
+
+#cpu {
+  padding-right: 10px;
+}
+
+#memory {
+  min-width: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#disk {
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+#pulseaudio {
+  padding-right: 25px;
+}
+
+#tray {
+  padding-right: 10px;
+}
+
+#clock {
+  min-width: 160px;
+}
+
+#bluetooth {
+  padding-right: 15px;
+}

@@ -1,0 +1,109 @@
+{
+  "layer": "top",
+  "modules-left": [
+    "custom/launcher",
+    "custom/taskmanager",
+    "hyprland/workspaces"
+  ],
+  "modules-center": [],
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    "pulseaudio",
+    "tray",
+    "bluetooth",
+    "clock"
+  ],
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      // "1": "",
+      // "2": "",
+      // "3": "",
+      // "4": "",
+      // "5": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    },
+    "sort-by-number": true,
+    "persistent-worspaces": {
+      "HDMI-A-1": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "HDMI-A-2": [
+        6,
+        7,
+        8,
+        9,
+        0
+      ]
+    }
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{}% ",
+    "max-length": 10
+  },
+  "memory": {
+    "interval": 1,
+    "format": "{used:0.1f}GB / {total:0.1f}GB "
+  },
+  "disk": {
+    "interval": 30,
+    "format": "{specific_used:0.1f} / {specific_total:0.1f} GB 󰋊",
+    // "format": "{free} GB / {total} GB on {path}",
+    // "format": "{specific_free:0.2f} GB out of {specific_total:0.2f} GB available. Alternatively {free} out of {total} available",
+    "unit": "GB",
+    "path": "/home"
+    // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
+  },
+  "pulseaudio": {
+    "on-click": "pavucontrol",
+    "format": "{volume}% {icon}",
+    "format-bluetooth": "{volume}% {icon}",
+    "format-muted": "󰸈",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    }
+  },
+  "bluetooth": {
+    // "format": " {status}",
+    // "format-connected": " {device_alias}",
+    "format": "",
+    "format-on": "󰂱",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "",
+    "format-connected-battery": " {device_alias} {device_battery_percentage}%",
+    "on-click": "alacritty --class Bluetuith -e bluetuith",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 10
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M:%S}",
+    "interval": 1
+  },
+  "custom/launcher": {
+    "format": "",
+    "on-click": "rofi -show drun"
+    // "max-length" = "2",
+  },
+  "custom/taskmanager": {
+    "format": "󰒔",
+    "on-click": "alacritty --class Btop -e btop"
+  }
+}
