@@ -15,6 +15,18 @@
     "bluetooth",
     "clock"
   ],
+  "custom/launcher": {
+    "format": "󰣇",
+    "on-click": "rofi -show drun",
+    // "max-length" = "2",,
+    "tooltip-format": "Launcher"
+  },
+  "custom/taskmanager": {
+    "format": "",
+    // "format": "󰣔",
+    "on-click": "alacritty --class Btop -e btop",
+    "tooltip-format": "Task Manager"
+  },
   "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
@@ -24,9 +36,19 @@
       // "3": "",
       // "4": "",
       // "5": "",
-      "urgent": "",
-      "active": "",
-      "default": ""
+      // "urgent": "",
+      // "active": "",
+      // "default": ""
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0"
     },
     "sort-by-number": true,
     "persistent-worspaces": {
@@ -48,16 +70,16 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "{}% ",
+    "format": "CPU: {}%",
     "max-length": 10
   },
   "memory": {
     "interval": 1,
-    "format": "{used:0.1f}GB / {total:0.1f}GB "
+    "format": "RAM: {used:0.1f} / {total:0.1f} GB"
   },
   "disk": {
     "interval": 30,
-    "format": "{specific_used:0.1f} / {specific_total:0.1f} GB 󰋊",
+    "format": "SSD: {specific_used:0.1f} / {specific_total:0.1f} GB",
     // "format": "{free} GB / {total} GB on {path}",
     // "format": "{specific_free:0.2f} GB out of {specific_total:0.2f} GB available. Alternatively {free} out of {total} available",
     "unit": "GB",
@@ -96,14 +118,5 @@
   "clock": {
     "format": "{:%a %d %b %H:%M:%S}",
     "interval": 1
-  },
-  "custom/launcher": {
-    "format": "",
-    "on-click": "rofi -show drun"
-    // "max-length" = "2",
-  },
-  "custom/taskmanager": {
-    "format": "󰒔",
-    "on-click": "alacritty --class Btop -e btop"
   }
 }
