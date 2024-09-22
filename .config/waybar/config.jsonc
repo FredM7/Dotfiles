@@ -117,6 +117,25 @@
   },
   "clock": {
     "format": "{:%a %d %b %H:%M:%S}",
-    "interval": 1
+    "interval": 1,
+    "tooltip-format": "<span size='9pt' font='Mono'>{calendar}</span>",
+    "calendar": {
+      "mode": "month", // month | year
+      "mode-mon-col": 3,
+      // "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    },
+    "actions":  {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_down",
+      "on-scroll-down": "shift_up"
+    }
   }
 }
