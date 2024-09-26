@@ -19,13 +19,13 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"tsserver",
+				"ts_ls",
 				"html",
 				"cssls",
 				"tailwindcss",
 				"lua_ls",
 				"emmet_ls",
-				"nil_ls",
+				-- "nil_ls", -- Nix language server
 				"rust_analyzer"
 			},
 			automatic_installation = true,
