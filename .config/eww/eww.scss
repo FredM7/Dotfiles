@@ -6,17 +6,43 @@ tooltip {
   background-color: black;
 }
 
-.example {
+.main {
   background-color: darkgreen;
   border: 2px solid white;
   border-radius: 8px;
-  padding: 8px;
-  margin: 8px;
-  margin-right: 0px;
-  font-size: 50px;
+  padding-left: 10px;
+  // padding-right: 10px;
+}
+
+.example {
+  font-size: 30px;
+}
+
+.cpu {
+  font-size: 14px;
+  color: white;
+  padding-right: 20px;
+}
+
+.ram {
+  font-size: 14px;
+  color: white;
+  padding-right: 20px;
+}
+
+.disk {
+  font-size: 14px;
+  color: white;
+  padding-right: 20px;
+}
+
+.tray {
+  padding-right: 20px;
 }
 
 .datetime {
-  font-size: 18px;
+  font-size: 14px;
   color: white;
+  min-width: 138px;
+  // background-color: black;
 }
