@@ -43,6 +43,11 @@ tooltip {
 .datetime {
   font-size: 14px;
   color: white;
-  min-width: 138px;
+  min-width: 145px;
   // background-color: black;
+}
+
+.cal {
+  background-color: green;
+  border-radius: 10px;
 }

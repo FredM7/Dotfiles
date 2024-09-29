@@ -47,6 +47,27 @@
   )
 )
 
+(defvar something "yes")
+
+(defwindow cal
+  ; :monitor '[0, 1]'
+  :monitor 0
+  :class "cal"
+  :windowtype "normal" ; normal, dock, toolbar, dialog, desktop
+  :exclusive "false" ; Whether the compositor should reserve space for the window.
+  :stacking "fg" ; fg, bg, overlay, bottom
+  ;:focusable "true" ; This is necessary for any widgets that use the keyboard to work.
+  :geometry (
+    geometry
+    ; :x "0%"
+    ; :y "20px"
+    :width "200px"
+    :height "200px"
+    :anchor "top right"
+  )
+  ; (widget :arg1 "This is a widget." :arg2 "This is a tooltip.")
+  (calendar)
+)
 
 ; (defpoll time :interval "1s"
   ;   :initial "initial-value"  ; optional, defaults to poll at startup
@@ -67,7 +88,6 @@
       :hexpand true
       (label :text arg1)
     )
-    ; (calendar)
     (cpu)
     (ram)
     (disk)
@@ -113,9 +133,24 @@
 (defwidget datetime [] (
     box
     :class "datetime"
-    ; :halign "end"
-    ; :exclusive "true" ; Whether the compositor should reserve space for the window.
-    ; :stacking "bg" ; fg, bg, overlay, bottom
-    (label :text `${formattime(EWW_TIME, "%a %d %b %H:%M:%S")}` :xalign 0)
+    (eventbox
+      ; :onclick {cal-visible ? "~/Development/OpenSource/eww/target/release/eww close cal" : "~/Development/OpenSource/eww/target/release/eww open cal"}
+      ; :onclick "
+      ; if something == 'yes'; then
+      ; ~/Development/OpenSource/eww/target/release/eww update something='no';
+      ; ~/Development/OpenSource/eww/target/release/eww close cal;
+      ; else
+      ; ~/Development/OpenSource/eww/target/release/eww update something='yes';
+      ; ~/Development/OpenSource/eww/target/release/eww open cal;
+      ; fi
+      ; "
+      :onclick {something == 'yes' ?
+      "~/Development/OpenSource/eww/target/release/eww update something='no';
+      ~/Development/OpenSource/eww/target/release/eww close cal" :
+      "~/Development/OpenSource/eww/target/release/eww update something='yes';
+      ~/Development/OpenSource/eww/target/release/eww open cal"}
+      (label :text `${formattime(EWW_TIME, "%a %d %b %H:%M:%S")}` :xalign 0)
+    )
+    ; something
   )
 )
