@@ -86,7 +86,7 @@
 (defwidget ram [] (
     box
     :class "ram"
-    (label :text `RAM: ${round(EWW_RAM.used_mem  / 1024 / 1024 / 1024, 1)} MB / ${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)} MB (${round(EWW_RAM.used_mem_perc, 1)}%)`)
+    (label :text `RAM: ${round(EWW_RAM.used_mem  / 1024 / 1024 / 1024, 1)} GB / ${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)} GB (${round(EWW_RAM.used_mem_perc, 1)}%)`)
   )
 )
 
