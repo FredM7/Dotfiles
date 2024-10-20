@@ -1,0 +1,5 @@
+(defwidget disk [] (
+    box :class "disk"
+    (label :text `SSD: ${round((EWW_DISK["/home"].used) / 1024 / 1024 / 1024, 1)} GB / ${round((EWW_DISK["/home"].total) / 1024 / 1024 / 1024, 1)} GB (${round(EWW_DISK["/home"].used_perc, 1)}%)`)
+  )
+)

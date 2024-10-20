@@ -1,22 +1,9 @@
-(defvar cal_visible "no")
-
-(defvar workspaces_one `[
-  "1",
-  "2",
-  "3",
-  "4",
-  "5"
-]`)
-
-(defvar workspaces_two `[
-  "6",
-  "7",
-  "8",
-  "9",
-  "0"
-]`)
-
-; ============================
+(include "./modules/workspaces.yuck")
+(include "./modules/cpu.yuck")
+(include "./modules/ram.yuck")
+(include "./modules/disk.yuck")
+(include "./modules/tray.yuck")
+(include "./modules/datetime.yuck")
 
 (defwindow topbar1
   ; :monitor '[0, 1]'
@@ -56,41 +43,6 @@
   (topbar)
 )
 
-(defwindow calwindow
-  ; :monitor '[0, 1]'
-  :monitor 0
-  :class "calwindow"
-  :exclusive "false" ; Whether the compositor should reserve space for the window.
-  :stacking "overlay" ; fg, bg, overlay, bottom
-  ; :focusable "true" ; This is necessary for any widgets that use the keyboard to work.
-  :geometry (
-    geometry
-    :x "10px"
-    :y "10px"
-    :width "200px"
-    ; :height "200px"
-    :anchor "top right"
-  )
-  ; (widget :arg1 "This is a widget." :arg2 "This is a tooltip.")
-  (eventbox
-    :onhoverlost "${EWW_CMD} update cal_visible='no'; ${EWW_CMD} close calwindow"
-    (box :class "calbox"
-      (calendar
-        :class "cal"
-        :show-heading "true" ; month, year selection
-        :show-day-names "true" ; Sun, Mon, Tue, Wed, Thu, Fri, Sat
-        :show-week-numbers "true"
-        :show-details "false" ; ???
-        ; :day 25
-        ; :year 1991
-      )
-      
-    )
-  )
-)
-
-; ============================
-
 (defwidget topbar [] (
     box :class "topbar" :space-evenly false
     (workspaces)
@@ -99,63 +51,5 @@
     (disk)
     (tray)
     (datetime)
-  )
-)
-
-(defwidget workspaces []
-  (
-    box :class "workspaces" :orientation "h" :space-evenly true :halign "start" :valign "center" :hexpand true :spacing 10
-    (for x in workspaces_one
-      (box :class "workspace" :vexpand true :hexpand true
-        (button :class "btn" :onclick `hyprctl dispatch workspace ${x}`
-          (label :text x)
-        )
-      )
-    )
-  )
-)
-
-(defwidget cpu [] (
-    box :class "cpu"
-    (label :text `CPU: ${round(EWW_CPU.avg, 1)}%`)
-  )
-)
-
-(defwidget ram [] (
-    box :class "ram"
-    (label :text `RAM: ${round(EWW_RAM.used_mem  / 1024 / 1024 / 1024, 1)} GB / ${round(EWW_RAM.total_mem / 1024 / 1024 / 1024, 1)} GB (${round(EWW_RAM.used_mem_perc, 1)}%)`)
-  )
-)
-
-(defwidget disk [] (
-    box :class "disk"
-    (label :text `SSD: ${round((EWW_DISK["/home"].used) / 1024 / 1024 / 1024, 1)} GB / ${round((EWW_DISK["/home"].total) / 1024 / 1024 / 1024, 1)} GB (${round(EWW_DISK["/home"].used_perc, 1)}%)`)
-  )
-)
-
-(defwidget tray [] (
-    box :class "tray" :halign "end"
-    (systray
-      :spacing 5
-      :space-evenly false
-      :orientation "h"
-      :icon-size 18
-    )
-  )
-)
-
-(defwidget datetime [] (
-    box :class "datetime"
-    (eventbox
-      :onrightclick "${EWW_CMD} update cal_visible='no'; ${EWW_CMD} close calwindow"
-      :onclick {cal_visible == 'yes' ?
-      "${EWW_CMD} update cal_visible='no';
-      ${EWW_CMD} close calwindow" :
-      "${EWW_CMD} update cal_visible='yes';
-      ${EWW_CMD} open calwindow"
-      }
-      
-      (label :text `${formattime(EWW_TIME, "%a %d %b %H:%M:%S")}` :xalign 0)
-    )
   )
 )

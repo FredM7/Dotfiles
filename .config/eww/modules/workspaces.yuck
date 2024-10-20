@@ -1,0 +1,28 @@
+(defvar workspaces_one `[
+  "1",
+  "2",
+  "3",
+  "4",
+  "5"
+]`)
+
+(defvar workspaces_two `[
+  "6",
+  "7",
+  "8",
+  "9",
+  "0"
+]`)
+
+(defwidget workspaces []
+  (
+    box :class "workspaces" :orientation "h" :space-evenly true :halign "start" :valign "center" :hexpand true :spacing 10
+    (for x in workspaces_one
+      (box :class "workspace" :vexpand true :hexpand true
+        (button :class "btn" :onclick `hyprctl dispatch workspace ${x}`
+          (label :text x)
+        )
+      )
+    )
+  )
+)
