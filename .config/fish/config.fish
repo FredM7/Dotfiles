@@ -10,5 +10,6 @@ function nvm
 end
 set -x NVM_DIR ~/.nvm
 nvm use default --silent
-#
 
+# Set up Flutter
+set PATH /home/fred/.flutter/flutter/bin $PATH
