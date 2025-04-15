@@ -70,8 +70,8 @@
   },
   "cpu": {
     "interval": 1,
-    "format": "CPU: {}%",
-    "max-length": 10
+    "format": "CPU: {avg_frequency:0.1f}%",
+    "max-length": 16
   },
   "memory": {
     "interval": 1,
