@@ -27,3 +27,6 @@ set --export PATH $BUN_INSTALL/bin $PATH
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/fred/.gcloud/path.fish.inc' ]; . '/home/fred/.gcloud/path.fish.inc'; end
+
+# opencode
+fish_add_path /home/fred/.opencode/bin
