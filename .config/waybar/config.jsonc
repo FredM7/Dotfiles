@@ -24,7 +24,8 @@
   "custom/taskmanager": {
     "format": "",
     // "format": "󰣔",
-    "on-click": "alacritty --class Btop -e btop",
+    // "on-click": "alacritty --class Btop -e btop",
+    "on-click": "ghostty -e btop",
     "tooltip-format": "Task Manager"
   },
   "hyprland/workspaces": {
@@ -104,7 +105,7 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-    "on-click": "alacritty --class Bluetuith -e bluetuith",
+    "on-click": "ghostty --app-class Bluetuith -e bluetuith",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
