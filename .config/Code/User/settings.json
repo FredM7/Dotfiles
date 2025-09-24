@@ -1,0 +1,16 @@
+{
+    "github.copilot.nextEditSuggestions.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "explorer.confirmDelete": false,
+    "editor.formatOnSave": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "terminal.integrated.scrollback": 10000,
+    "editor.linkedEditing": true,
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'EnvyCodeR Nerd Font'",
+    "workbench.iconTheme": "vscode-icons",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

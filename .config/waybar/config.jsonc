@@ -3,6 +3,7 @@
   "modules-left": [
     "custom/launcher",
     "custom/taskmanager",
+    "custom/hyprpicker",
     "hyprland/workspaces"
   ],
   "modules-center": [],
@@ -27,6 +28,13 @@
     // "on-click": "alacritty --class Btop -e btop",
     "on-click": "ghostty -e btop",
     "tooltip-format": "Task Manager"
+  },
+  "custom/hyprpicker": {
+    "format": "",
+    // "format": "󰣔",
+    // "on-click": "alacritty --class Btop -e btop",
+    "on-click": "hyprpicker -f hex -a",
+    "tooltip-format": "Hyprpicker"
   },
   "hyprland/workspaces": {
     "format": "{icon}",

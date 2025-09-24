@@ -13,7 +13,11 @@ window#waybar {
   color: #ff8c00;
   font-size: 20px;
 }
-#custom-launcher, #custom-taskmanager {
+#custom-hyprpicker {
+  color: #2fbb00;
+  font-size: 18px;
+}
+#custom-launcher, #custom-taskmanager, #custom-hyprpicker {
   min-width: 40px;
 }
 
