@@ -1,0 +1,7 @@
+[Nemo Action]
+Name=Open in Ghostty
+Comment=Open a new Ghostty terminal in the current directory
+Exec=ghostty --working-directory=%F
+Icon-Name=terminal
+Extensions=dir;
+Quote=double

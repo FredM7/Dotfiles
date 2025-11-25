@@ -6,5 +6,6 @@ window-padding-y = 10
 background-opacity = 0.9
 window-height = 30
 window-width = 112
+working-directory = inherit
 # theme = Catppuccin Frappe
 shell-integration-features = ssh-env

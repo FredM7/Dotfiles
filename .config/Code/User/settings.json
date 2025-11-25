@@ -25,5 +25,6 @@
     "git.confirmSync": false,
     "editor.stickyScroll.enabled": false,
     "terminal.integrated.stickyScroll.enabled": false,
-    "workbench.tree.enableStickyScroll": false
+    "workbench.tree.enableStickyScroll": false,
+    "security.workspace.trust.untrustedFiles": "open"
 }
