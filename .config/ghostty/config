@@ -1,5 +1,6 @@
 font-family = "EnvyCodeR Nerd Font"
 font-size = 10.5
+confirm-close-surface = false
 background = #0E0E10
 window-padding-x = 10
 window-padding-y = 10

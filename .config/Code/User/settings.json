@@ -26,5 +26,7 @@
     "editor.stickyScroll.enabled": false,
     "terminal.integrated.stickyScroll.enabled": false,
     "workbench.tree.enableStickyScroll": false,
-    "security.workspace.trust.untrustedFiles": "open"
+    "security.workspace.trust.untrustedFiles": "open",
+    "vsicons.dontShowNewVersionMessage": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
