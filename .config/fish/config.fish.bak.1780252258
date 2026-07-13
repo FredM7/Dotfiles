@@ -30,8 +30,3 @@ if [ -f '/home/fred/.gcloud/path.fish.inc' ]; . '/home/fred/.gcloud/path.fish.in
 
 # opencode
 fish_add_path /home/fred/.opencode/bin
-
-
-# >>> grok installer >>>
-fish_add_path $HOME/.grok/bin
-# <<< grok installer <<<

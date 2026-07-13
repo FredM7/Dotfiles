@@ -4,7 +4,7 @@
     "custom/launcher",
     "custom/taskmanager",
     "custom/hyprpicker",
-    "hyprland/workspaces"
+    "hyprland/workspaces",
   ],
   "modules-center": [],
   "modules-right": [
@@ -14,27 +14,27 @@
     "pulseaudio",
     "tray",
     "bluetooth",
-    "clock"
+    "clock",
   ],
   "custom/launcher": {
     "format": "󰣇",
     "on-click": "rofi -show drun",
     // "max-length" = "2",,
-    "tooltip-format": "Launcher"
+    "tooltip-format": "Launcher",
   },
   "custom/taskmanager": {
     "format": "",
     // "format": "󰣔",
     // "on-click": "alacritty --class Btop -e btop",
     "on-click": "ghostty -e btop",
-    "tooltip-format": "Task Manager"
+    "tooltip-format": "Task Manager",
   },
   "custom/hyprpicker": {
     "format": "",
     // "format": "󰣔",
     // "on-click": "alacritty --class Btop -e btop",
     "on-click": "hyprpicker -f hex -a",
-    "tooltip-format": "Hyprpicker"
+    "tooltip-format": "Hyprpicker",
   },
   "hyprland/workspaces": {
     "format": "{icon}",
@@ -57,34 +57,22 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "10": "0"
+      "10": "0",
     },
     "sort-by-number": true,
     "persistent-worspaces": {
-      "HDMI-A-1": [
-        1,
-        2,
-        3,
-        4,
-        5
-      ],
-      "HDMI-A-2": [
-        6,
-        7,
-        8,
-        9,
-        0
-      ]
-    }
+      "HDMI-A-1": [1, 2, 3, 4, 5],
+      "HDMI-A-2": [6, 7, 8, 9, 0],
+    },
   },
   "cpu": {
     "interval": 1,
     "format": "CPU: {usage}%",
-    "max-length": 16
+    "max-length": 16,
   },
   "memory": {
     "interval": 1,
-    "format": "RAM: {used:0.1f} / {total:0.1f} GB"
+    "format": "RAM: {used:0.1f} / {total:0.1f} GB",
   },
   "disk": {
     "interval": 30,
@@ -92,7 +80,7 @@
     // "format": "{free} GB / {total} GB on {path}",
     // "format": "{specific_free:0.2f} GB out of {specific_total:0.2f} GB available. Alternatively {free} out of {total} available",
     "unit": "GB",
-    "path": "/home"
+    "path": "/home",
     // 0.25 GB out of 2000.00 GB available. Alternatively 241.3MiB out of 1.9TiB available.
   },
   "pulseaudio": {
@@ -101,8 +89,8 @@
     "format-bluetooth": "{volume}% {icon}",
     "format-muted": "󰸈",
     "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"]
-    }
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
   },
   "bluetooth": {
     // "format": " {status}",
@@ -113,16 +101,17 @@
     "format-disabled": "󰂲",
     "format-connected": "",
     "format-connected-battery": " {device_alias} {device_battery_percentage}%",
-    "on-click": "ghostty --app-class Bluetuith -e bluetuith",
+    // "on-click": "ghostty --app-class Bluetuith -e bluetuith",
+    "on-click": "blueman-manager",
     // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
     "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
   },
   "tray": {
     "icon-size": 18,
-    "spacing": 10
+    "spacing": 10,
   },
   "clock": {
     "format": "{:%a %d %b %H:%M:%S}",
@@ -138,13 +127,13 @@
         "days": "<span color='#ecc6d9'><b>{}</b></span>",
         "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
         "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
-      }
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
     },
-    "actions":  {
+    "actions": {
       "on-click-right": "mode",
       "on-scroll-up": "shift_down",
-      "on-scroll-down": "shift_up"
-    }
-  }
+      "on-scroll-down": "shift_up",
+    },
+  },
 }

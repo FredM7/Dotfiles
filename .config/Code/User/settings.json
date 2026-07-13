@@ -1,32 +1,44 @@
 {
-    "github.copilot.nextEditSuggestions.enabled": true,
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "explorer.confirmDelete": false,
-    "editor.formatOnSave": true,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "terminal.integrated.scrollback": 5000,
-    "editor.linkedEditing": true,
-    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'EnvyCodeR Nerd Font'",
-    "workbench.iconTheme": "vscode-icons",
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "editor.tabSize": 2,
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
-    "files.exclude": {
-        "**/.DS_Store": false
-    },
-    "git.confirmSync": false,
-    "editor.stickyScroll.enabled": false,
-    "terminal.integrated.stickyScroll.enabled": false,
-    "workbench.tree.enableStickyScroll": false,
-    "security.workspace.trust.untrustedFiles": "open",
-    "vsicons.dontShowNewVersionMessage": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "github.copilot.nextEditSuggestions.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDelete": false,
+  "editor.formatOnSave": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "terminal.integrated.scrollback": 10000,
+  "editor.linkedEditing": true,
+  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace, 'EnvyCodeR Nerd Font'",
+  "workbench.iconTheme": "vscode-icons",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.tabSize": 2,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:gpt-4.1",
+  "files.exclude": {
+    "**/.DS_Store": false,
+  },
+  "git.confirmSync": false,
+  "editor.stickyScroll.enabled": false,
+  "terminal.integrated.stickyScroll.enabled": false,
+  "workbench.tree.enableStickyScroll": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.accessibilitySupport": "off",
+  "workbench.colorTheme": "Dark Modern",
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+  },
+  "workbench.secondarySideBar.defaultVisibility": "hidden",
+  "explorer.confirmDragAndDrop": false,
+  "editor.cursorBlinking": "expand",
+  "go.toolsManagement.autoUpdate": true,
+  "claudeCode.preferredLocation": "panel",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "todo-tree.ripgrep.ripgrep": "/usr/bin/rg",
 }

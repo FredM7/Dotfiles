@@ -1,10 +1,11 @@
 {
   // "disable-hardware-acceleration": true,
   "enable-crash-reporter": true,
-  // Unique id used for correlating crash reports sent from this instance. Do not edit this value. 
+  // Unique id used for correlating crash reports sent from this instance. Do not edit this value.
   // Get existing value on a new system and put here before repalcing.
   "crash-reporter-id": "78c21b33-3e1e-42af-a65c-28cf7e9bbbf3",
-//   "password-store": "libsecret",
-  "password-store": "gnome-libsecret"
-//   "password-store": "gnome-keyring"
+  //   "password-store": "libsecret",
+  "password-store": "gnome-libsecret",
+  "force-renderer-accessibility": true
+  //   "password-store": "gnome-keyring"
 }
