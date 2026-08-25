@@ -35,3 +35,6 @@ fish_add_path /home/fred/.opencode/bin
 # >>> grok installer >>>
 fish_add_path $HOME/.grok/bin
 # <<< grok installer <<<
+
+# Hermes Agent — ensure ~/.local/bin is on PATH
+fish_add_path "$HOME/.local/bin"
