@@ -20,7 +20,8 @@ Item {
     id: volText
     anchors.centerIn: parent
     color: root.muted ? "#f38ba8" : "#cdd6f4"
-    font.pixelSize: 16
+    font.family: "Noto Sans Serif"
+    font.pixelSize: 14
 
     text: {
       if (root.muted)

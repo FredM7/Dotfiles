@@ -14,8 +14,9 @@ Item {
     id: diskText
     anchors.centerIn: parent
     color: "#cdd6f4"
-    font.pixelSize: 16
-    text: "󰋊  " + root.diskTextValue
+    font.family: "Noto Sans Serif"
+    font.pixelSize: 14
+    text: "SSD: " + root.diskTextValue
   }
 
   // Run df and parse free space

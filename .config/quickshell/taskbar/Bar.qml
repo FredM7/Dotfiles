@@ -37,85 +37,17 @@ Scope {
           anchors.left: parent.left
           anchors.leftMargin: 12
           anchors.verticalCenter: parent.verticalCenter
-          spacing: 10
+          spacing: 5
 
           // ─── Left buttons ───────────────────────────────
           Row {
-            spacing: 6
+            spacing: 5
 
-            // 1. App launcher (dmenu / rofi / wofi)
-            Rectangle {
-              width: 34
-              height: 30
-              radius: 6
-              color: launcherMa.containsMouse ? "#45475a" : "#313244"
+            Launcher {}
 
-              Text {
-                anchors.centerIn: parent
-                text: "󰣇"          // or "󰕰" / "" — change to whatever you like
-                color: "#cdd6f4"
-                font.pixelSize: 25
-              }
+            Activities {}
 
-              MouseArea {
-                id: launcherMa
-                anchors.fill: parent
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                onClicked: Quickshell.execDetached(["rofi", "-show", "drun"])
-                // Alternatives:
-                // Quickshell.execDetached(["wofi", "--show", "drun"])
-                // Quickshell.execDetached(["fuzzel"])
-                // Quickshell.execDetached(["dmenu_run"])
-              }
-            }
-
-            // 2. btop
-            Rectangle {
-              width: 34
-              height: 30
-              radius: 6
-              color: btopMa.containsMouse ? "#45475a" : "#313244"
-
-              Text {
-                anchors.centerIn: parent
-                text: "󰨇"          // or ""
-                color: "#cdd6f4"
-                font.pixelSize: 20
-              }
-
-              MouseArea {
-                id: btopMa
-                anchors.fill: parent
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                onClicked: Quickshell.execDetached(["ghostty", "-e", "btop"])
-                // Change "kitty" to your terminal if different (foot, alacritty, etc.)
-              }
-            }
-
-            // 3. hyprpicker
-            Rectangle {
-              width: 34
-              height: 30
-              radius: 6
-              color: pickerMa.containsMouse ? "#45475a" : "#313244"
-
-              Text {
-                anchors.centerIn: parent
-                text: "󰈋"          // or ""
-                color: "#cdd6f4"
-                font.pixelSize: 23
-              }
-
-              MouseArea {
-                id: pickerMa
-                anchors.fill: parent
-                hoverEnabled: true
-                cursorShape: Qt.PointingHandCursor
-                onClicked: Quickshell.execDetached(["hyprpicker"])
-              }
-            }
+            Hyprpick {}
           }
 
           Item {
@@ -123,7 +55,7 @@ Scope {
             height: 1
           }
 
-          Hypr {
+          Workspaces {
             // anchors.centerIn: parent
             anchors.verticalCenter: parent.verticalCenter
             screen: modelData
@@ -134,7 +66,7 @@ Scope {
           anchors.right: parent.right
           anchors.rightMargin: 12
           anchors.verticalCenter: parent.verticalCenter
-          spacing: 10
+          spacing: 5
 
           Cpu {}
 

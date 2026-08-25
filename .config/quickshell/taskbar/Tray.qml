@@ -9,6 +9,7 @@ Row {
 
   id: trayRow
   spacing: 6
+  anchors.verticalCenter: parent.verticalCenter
 
   // Tooltip {
   //   id: tip

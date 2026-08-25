@@ -5,7 +5,8 @@ Text {
   id: timeText
   anchors.verticalCenter: parent.verticalCenter
   color: "#ffffff"
-  font.pixelSize: 16
+  font.family: "Noto Sans Serif"
+  font.pixelSize: 14
 
   text: Qt.formatDateTime(clock.date, "ddd d MMM hh:mm:ss")
 

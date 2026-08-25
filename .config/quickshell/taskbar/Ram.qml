@@ -13,8 +13,9 @@ Item {
     id: ramText
     anchors.centerIn: parent
     color: "#cdd6f4"
-    font.pixelSize: 16
-    text: "󰍛  " + root.ramTextValue
+    font.family: "Noto Sans Serif"
+    font.pixelSize: 14
+    text: "RAM: " + root.ramTextValue
   }
 
   Process {
@@ -40,7 +41,7 @@ Item {
           const used = total - available
           const usedGiB = (used / 1024 / 1024).toFixed(1)
           const totalGiB = (total / 1024 / 1024).toFixed(1)
-          root.ramTextValue = usedGiB + " / " + totalGiB + " GiB"
+          root.ramTextValue = usedGiB + " / " + totalGiB + "GB"
         }
       }
     }

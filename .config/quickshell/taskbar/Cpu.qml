@@ -16,9 +16,10 @@ Item {
     id: cpuText
     anchors.centerIn: parent
     color: "#cdd6f4"
-    font.pixelSize: 16
+    font.family: "Noto Sans Serif"
+    font.pixelSize: 14
     // text: "󰻠  " + Math.round(root.usage) + "%"
-    text: "󰻠  " + root.usage.toFixed(0) + "%"
+    text: "CPU: " + root.usage.toFixed(0) + "%"
   }
 
   Process {
