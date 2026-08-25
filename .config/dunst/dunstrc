@@ -1,7 +1,7 @@
 # See dunst(5) for all configuration options
 
 [global]
-    monitor = 1
+    monitor = 0
     follow = none
     origin = bottom-right
     corner_radius = 10
