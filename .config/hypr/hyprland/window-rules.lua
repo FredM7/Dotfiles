@@ -13,6 +13,7 @@ hl.window_rule({ name = "float-nemo", match = { class = "nemo" }, float = true, 
 hl.window_rule({ name = "float-1password", match = { class = "1password" }, float = true, size = {800, 600} })
 hl.window_rule({ name = "float-localsend", match = { class = "localsend" }, float = true, size = {700, 500} })
 hl.window_rule({ name = "float-diskutility", match = { class = "org.gnome.DiskUtility" }, float = true })
+hl.window_rule({ name = "float-blueman-manager", match = { class = "blueman-manager" }, float = true, size = {800, 600} })
 -- initial title "2 Reminders"
 hl.window_rule({ name = "float-mozilla-reminders",   match = { class = "org.mozilla.Thunderbird", initial_title = "Calendar Reminders" }, float = true })
 -- title "Edit Event:"
