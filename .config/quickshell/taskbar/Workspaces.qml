@@ -36,20 +36,30 @@ Row {
 
       readonly property bool isFocused: Hyprland.focusedWorkspace?.id === wsId
       readonly property bool isOccupied: ws !== null && ws.toplevels.count > 0
+      readonly property bool isUrgent: ws?.urgent ?? false
+      readonly property bool isActive: ws?.active ?? false
 
       width: 30
       height: 30
       radius: 6
-      border.width: isFocused ? 0 : 1
+      border.width: (isFocused || isUrgent || isActive) ? 0 : 1
       border.color: isFocused ? 'transparent' : '#00b3d7' 
 
       color: {
-        if (mouseArea.containsMouse && !isFocused) {
-          return '#4a4a4a'
-        }
-
         if (isFocused) {
           return "#ffffff"
+        }
+
+        if (isActive) {
+          return "#4a4a4a"
+        }
+
+        if (isUrgent) {
+          return '#ff6a19'
+        }
+
+        if (mouseArea.containsMouse && !isFocused) {
+          return '#4a4a4a'
         }
 
         if (isOccupied) {
@@ -62,10 +72,10 @@ Row {
       Text {
         anchors.centerIn: parent
         text: wsId
-        color: isFocused ? "#1e1e2e" : "#ffffff"
+        color: (isFocused || isUrgent) ? "#1e1e2e" : "#ffffff"
         font.family: "Noto Sans Serif"
         font.pixelSize: 12
-        font.bold: isFocused
+        font.bold: (isFocused || isUrgent)
       }
 
       MouseArea {
