@@ -1,0 +1,5 @@
+module TimeCalendar
+# singleton Service 1.0 Service.qml
+# Button 1.0 Button.qml
+Time 1.0 Time.qml
+Calendar 1.0 Calendar.qml

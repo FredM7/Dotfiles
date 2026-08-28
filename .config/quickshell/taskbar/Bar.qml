@@ -1,6 +1,8 @@
 import Quickshell
 import Quickshell.Io
 import QtQuick
+import "TimeCalendar" as TimeCalendar
+import "Grok" as Grok
 
 Scope {
   // id: root
@@ -91,7 +93,16 @@ Scope {
             height: 1
           }
 
-          Time {}
+          Grok.Button {
+            anchors.verticalCenter: parent.verticalCenter
+          }
+
+          Item {
+            width: 20   // change this number for more/less space
+            height: 1
+          }
+
+          TimeCalendar.Time {}
         }
       }
     }
