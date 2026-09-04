@@ -62,6 +62,15 @@ Scope {
             anchors.verticalCenter: parent.verticalCenter
             screen: modelData
           }
+
+          Item {
+            width: 20   // change this number for more/less space
+            height: 1
+          }
+
+          Spotify {
+            anchors.verticalCenter: parent.verticalCenter
+          }
         }
 
         Row {

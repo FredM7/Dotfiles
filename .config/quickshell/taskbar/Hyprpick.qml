@@ -19,6 +19,6 @@ Rectangle {
     anchors.fill: parent
     hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
-    onClicked: Quickshell.execDetached(["hyprpicker"])
+    onClicked: Quickshell.execDetached(["hyprpicker", "-f", "hex", "-a"])
   }
 }
