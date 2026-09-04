@@ -23,7 +23,7 @@ Rectangle {
       if (name.includes("spotify"))
         return p
     }
-    return list.length ? list[0] : null
+    return null
   }
 
   Row {
