@@ -1,0 +1,4 @@
+module Spotify
+Player 1.0 Player.qml
+Icon 1.0 Icon.qml
+Seek 1.0 Seek.qml

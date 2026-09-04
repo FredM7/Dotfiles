@@ -1,5 +1,6 @@
 import QtQuick
 import Quickshell
+// import Qt5Compat.GraphicalEffects
 
 Item {
   id: root
@@ -7,6 +8,16 @@ Item {
   implicitHeight: 28
 
   property bool open: false
+
+  function accentColor() {
+    if (Service.usedPercent >= 80) {
+      return '#e8ff17';
+    }
+    if (Service.usedPercent >= 90) {
+      return '#ff3b1d';
+    }
+    return "#eeeeee";
+  }
 
   Rectangle {
     id: btn
@@ -16,24 +27,22 @@ Item {
     radius: 6
     color: (hover.containsMouse || root.open) ? "#33ffffff" : "#22ffffff"
 
+    
+
     Row {
       id: label
       anchors.centerIn: parent
       spacing: 6
 
-      Image {
-        anchors.verticalCenter: parent.verticalCenter
-        source: Qt.resolvedUrl("grok.svg")
-        width: 18
-        height: 18
-        smooth: true
+      Icon {
+        iconColor: root.accentColor()
       }
 
       Text {
         font.family: "Noto Sans Serif"
         anchors.verticalCenter: parent.verticalCenter
         text: Service.usedPercent < 0 ? "…" : Service.usedPercent.toFixed(0) + "%"
-        color: Service.usedPercent >= 80 ? "#f7768e" : "#eeeeee"
+        color: root.accentColor()
         font.pixelSize: 14
       }
     }

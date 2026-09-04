@@ -3,6 +3,7 @@ import Quickshell.Io
 import QtQuick
 import "TimeCalendar" as TimeCalendar
 import "Grok" as Grok
+import "Spotify" as Spotify
 
 Scope {
   // id: root
@@ -68,7 +69,7 @@ Scope {
             height: 1
           }
 
-          Spotify {
+          Spotify.Player {
             anchors.verticalCenter: parent.verticalCenter
           }
         }

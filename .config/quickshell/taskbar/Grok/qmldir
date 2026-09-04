@@ -2,3 +2,4 @@ module Grok
 singleton Service 1.0 Service.qml
 Button 1.0 Button.qml
 Content 1.0 Content.qml
+Icon 1.0 Icon.qml
