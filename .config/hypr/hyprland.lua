@@ -1,6 +1,6 @@
 local terminal    = "ghostty"
 local fileManager = "nemo"
-local menu        = "rofi -show drun"
+local menu        = "quickshell -c launcher ipc call launcher toggle" --"rofi -show drun"
 local mainMod = "SUPER"
 
 require("hyprland/monitors")

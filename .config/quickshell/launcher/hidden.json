@@ -1,0 +1,29 @@
+{
+  "ids": [
+    "assistant",
+    "avahi-discover",
+    "blueman-adapters",
+    "blueman-manager",
+    "bssh",
+    "btop",
+    "bvnc",
+    "cmake-gui",
+    "designer",
+    "electron37",
+    "lftp",
+    "linguist",
+    "lstopo",
+    "mpv",
+    "nm-connection-editor",
+    "nvim",
+    "org.gnome.FileRoller",
+    "qdbusviewer",
+    "qv4l2",
+    "qvidcap",
+    "rofi",
+    "rofi-theme-selector",
+    "vim",
+    "xgps",
+    "xgpsspeed"
+  ]
+}
