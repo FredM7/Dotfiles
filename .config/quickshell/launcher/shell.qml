@@ -8,6 +8,8 @@ ShellRoot {
   id: root
 
   property bool launcherOpen: false
+  property bool clipboardOpen: false
+
   property var hiddenIds: ({})
   property var usage: ({})
 
@@ -85,6 +87,7 @@ ShellRoot {
 
   function show() {
     root.launcherOpen = true;
+    root.clipboardOpen = false;
   }
 
   function hide() {
@@ -94,6 +97,19 @@ ShellRoot {
   function toggle() {
     root.launcherOpen = !root.launcherOpen;
   }
+
+  function showClipboard() {
+    root.launcherOpen = false;
+    root.clipboardOpen = true;
+  }
+
+  function hideClipboard() {
+    root.clipboardOpen = false;
+  }
+
+  function toggleClipboard() {
+    root.clipboardOpen = !root.clipboardOpen;
+}
 
   FileView {
     id: hiddenFile
@@ -132,6 +148,23 @@ ShellRoot {
     }
     function isOpen(): bool {
       return root.launcherOpen;
+    }
+  }
+
+  IpcHandler {
+    target: "clipboard"
+
+    function toggle(): void {
+      root.toggleClipboard();
+    }
+    function show(): void {
+      root.showClipboard();
+    }
+    function hide(): void {
+      root.hideClipboard();
+    }
+    function isOpen(): bool {
+      return root.clipboardOpen;
     }
   }
 
@@ -177,6 +210,45 @@ ShellRoot {
         shell: root
         active: win.visible
         onRequestClose: root.hide()
+      }
+    }
+  }
+
+  Variants {
+    model: Quickshell.screens
+
+    PanelWindow {
+      id: clipWin
+      required property var modelData
+
+      readonly property bool onFocusedScreen: {
+        const fm = Hyprland.focusedMonitor;
+        if (!fm || !modelData)
+          return true;
+        return fm.name === modelData.name;
+      }
+
+      screen: modelData
+      visible: root.clipboardOpen && onFocusedScreen
+      color: "transparent"
+      exclusionMode: ExclusionMode.Ignore
+
+      WlrLayershell.layer: WlrLayer.Overlay
+      WlrLayershell.namespace: "qs-clipboard"
+      WlrLayershell.keyboardFocus: visible ? WlrKeyboardFocus.Exclusive : WlrKeyboardFocus.None
+
+      anchors { top: true; bottom: true; left: true; right: true }
+
+      onVisibleChanged: {
+        if (visible)
+          Qt.callLater(() => clipPanel.grabFocus());
+      }
+
+      ClipboardPanel {
+        id: clipPanel
+        anchors.fill: parent
+        active: clipWin.visible
+        onRequestClose: root.hideClipboard()
       }
     }
   }

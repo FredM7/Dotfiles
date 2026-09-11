@@ -1,5 +1,6 @@
 import Quickshell
 import QtQuick
+import Quickshell.Hyprland
 
 Rectangle {
   width: 30
@@ -19,10 +20,14 @@ Rectangle {
     anchors.fill: parent
     hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
-    onClicked: Quickshell.execDetached(["rofi", "-show", "drun"])
-    // Alternatives:
-    // Quickshell.execDetached(["wofi", "--show", "drun"])
-    // Quickshell.execDetached(["fuzzel"])
-    // Quickshell.execDetached(["dmenu_run"])
+    // onClicked: Quickshell.execDetached(["rofi", "-show", "drun"])
+    onClicked: Hyprland.dispatch('hl.dsp.exec_cmd("quickshell -c launcher ipc call launcher toggle")')
+    // onClicked: Quickshell.execDetached([
+    //   "env",
+    //   "-u", "QS_CONFIG_NAME",
+    //   "-u", "QS_CONFIG_PATH",
+    //   "-u", "QS_MANIFEST",
+    //   "quickshell", "-c", "launcher", "ipc", "call", "launcher", "toggle"
+    // ])
   }
 }
