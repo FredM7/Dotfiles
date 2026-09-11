@@ -1,0 +1,4 @@
+module GithubInbox
+singleton GitHubService 1.0 GitHubService.qml
+GitHubButton 1.0 GitHubButton.qml
+InboxPanel 1.0 Inbox/InboxPanel.qml
