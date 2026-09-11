@@ -38,8 +38,14 @@ Item {
 
     // Click = toggle mute
     onClicked: (mouse) => {
-      if (root.sink?.audio)
-        root.sink.audio.muted = !root.sink.audio.muted
+      if (mouse.button === Qt.LeftButton) {
+        Quickshell.execDetached(["pavucontrol"])
+      }
+
+      if (mouse.button === Qt.RightButton) {
+        if (root.sink?.audio)
+          root.sink.audio.muted = !root.sink.audio.muted
+      }
     }
 
     // Scroll = change volume
