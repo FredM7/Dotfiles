@@ -4,6 +4,8 @@ import QtQuick
 import "TimeCalendar" as TimeCalendar
 import "Grok" as Grok
 import "Spotify" as Spotify
+// import "GithubInbox" as GithubInbox
+import "Github" as Github
 
 Scope {
   // id: root
@@ -102,6 +104,9 @@ Scope {
             width: 20   // change this number for more/less space
             height: 1
           }
+
+          // GithubInbox.GitHubButton {}
+          Github.Button {}
 
           Grok.Button {
             anchors.verticalCenter: parent.verticalCenter

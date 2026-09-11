@@ -1,0 +1,5 @@
+module Github
+singleton Service 1.0 Service.qml
+Button 1.0 Button.qml
+Panel 1.0 Panel.qml
+Search 1.0 Search.qml
