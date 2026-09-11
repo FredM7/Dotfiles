@@ -19,7 +19,8 @@ function binds.load(config) --(mainMod, terminal, fileManager, menu)
   hl.bind(mainMod .. " + R",         hl.dsp.layout("togglesplit"))
   hl.bind("Print",                   hl.dsp.exec_cmd('grim -g "$(slurp)" - | swappy -f -'))
   hl.bind("SHIFT + Print",           hl.dsp.exec_cmd("kooha"))
-  hl.bind(mainMod .. " + Z",         hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+  -- hl.bind(mainMod .. " + Z",         hl.dsp.exec_cmd("cliphist list | rofi -dmenu | cliphist decode | wl-copy"))
+  hl.bind(mainMod .. " + Z",         hl.dsp.exec_cmd("quickshell -c launcher ipc call clipboard toggle"))
   hl.bind(mainMod .. " + L",         hl.dsp.exec_cmd("hyprlock"))
 
   -- Arrow keys focus
