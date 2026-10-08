@@ -70,6 +70,14 @@ PopupWindow {
 
       Text {
         font.family: "Noto Sans Serif"
+        visible: Service.additionalCredits >= 0
+        text: "Additional: $" + (Service.additionalCredits / 100).toFixed(2)
+        color: "#c0caf5"
+        font.pixelSize: 14
+      }
+
+      Text {
+        font.family: "Noto Sans Serif"
         visible: Service.resetAt.length > 0
         text: "Resets: " + Service.resetAt
         color: "#aaaaaa"

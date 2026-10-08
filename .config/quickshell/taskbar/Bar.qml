@@ -82,13 +82,21 @@ Scope {
           anchors.verticalCenter: parent.verticalCenter
           spacing: 5
 
-          Cpu {}
+          Cpu {
+            anchors.verticalCenter: parent.verticalCenter
+          }
 
-          Ram {}
+          Ram {
+            anchors.verticalCenter: parent.verticalCenter
+          }
           
-          Disk {}
+          Disk {
+            anchors.verticalCenter: parent.verticalCenter
+          }
           
-          Volume {}
+          Volume {
+            anchors.verticalCenter: parent.verticalCenter
+          }
 
           Item {
             width: 20   // change this number for more/less space

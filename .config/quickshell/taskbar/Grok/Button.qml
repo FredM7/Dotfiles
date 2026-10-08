@@ -10,12 +10,10 @@ Item {
   property bool open: false
 
   function accentColor() {
-    if (Service.usedPercent >= 80) {
-      return '#e8ff17';
-    }
-    if (Service.usedPercent >= 90) {
-      return '#ff3b1d';
-    }
+    if (Service.usedPercent >= 100 && Service.additionalCredits >= 0)
+      return '#f54e34';
+    if (Service.usedPercent >= 80)
+      return "#e8ff17";
     return "#eeeeee";
   }
 
@@ -41,7 +39,13 @@ Item {
       Text {
         font.family: "Noto Sans Serif"
         anchors.verticalCenter: parent.verticalCenter
-        text: Service.usedPercent < 0 ? "…" : Service.usedPercent.toFixed(0) + "%"
+        text: {
+          if (Service.usedPercent < 0)
+            return "0%"
+          if (Service.usedPercent >= 100 && Service.additionalCredits >= 0)
+            return "$" + (Service.additionalCredits / 100).toFixed(2)
+          return Service.usedPercent.toFixed(0) + "%"
+        }
         color: root.accentColor()
         font.pixelSize: 14
       }

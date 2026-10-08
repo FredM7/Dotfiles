@@ -7,6 +7,7 @@ Scope {
   id: root
 
   property real usedPercent: -1
+  property real additionalCredits: -1
   property string resetAt: ""
   property string statusText: "loading…"
   property string lastError: ""
@@ -34,6 +35,7 @@ Scope {
         root.lastError = String(d.error);
         root.statusText = "unavailable";
         root.usedPercent = -1;
+        root.additionalCredits = -1;
         return;
       }
 
@@ -41,12 +43,11 @@ Scope {
       const pct = cfg.creditUsagePercent;
       root.usedPercent = pct === undefined ? -1 : Number(pct);
 
-      // const end = cfg.currentPeriod?.end
-      //           || cfg.billingPeriodEnd
-      //           || "";
-      // root.resetAt = end
-      //     ? String(end).replace("T", " ").replace(/\.\d+Z$/, " UTC").replace("Z", " UTC")
-      //     : "";
+      const prepaid = cfg.prepaidBalance?.val;
+      root.additionalCredits = prepaid === undefined || prepaid === null
+          ? -1
+          : Number(prepaid);
+
       const end = cfg.currentPeriod?.end || cfg.billingPeriodEnd || "";
       root.resetAt = end ? formatReset(end) : "";
 
