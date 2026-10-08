@@ -1,4 +1,5 @@
 import Quickshell
+import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 
@@ -6,11 +7,9 @@ PopupWindow {
   id: root
 
   property var target: null
-  property bool show: false
-  property bool popupHovered: false
-  property var closeTimer
+  property date viewDate: new Date()
 
-  visible: show //&& target !== null
+  signal requestClose()
 
   // Size
   implicitWidth: 260
@@ -23,8 +22,35 @@ PopupWindow {
 
   color: "transparent"
 
-  // Current viewing month
-  property date viewDate: new Date()
+  onVisibleChanged: {
+    if (visible) {
+      armTimer.restart()
+    } else {
+      armTimer.stop()
+      grab.active = false
+    }
+  }
+
+  // Delay grab so the opening click does not immediately clear focus.
+  Timer {
+    id: armTimer
+    interval: 150
+    repeat: false
+    onTriggered: {
+      if (root.visible)
+        grab.active = true
+    }
+  }
+
+  HyprlandFocusGrab {
+    id: grab
+    windows: [root]
+    onCleared: {
+      if ((root.target && root.target.buttonOwnsClick) || armTimer.running || !root.visible)
+        return
+      root.requestClose()
+    }
+  }
 
   Rectangle {
     anchors.fill: parent
@@ -32,32 +58,6 @@ PopupWindow {
     radius: 10
     border.color: "#45475a"
     border.width: 1
-
-    // Keep the popup open while mouse is over it
-    MouseArea {
-      anchors.fill: parent
-      hoverEnabled: true
-      onEntered: root.popupHovered = true
-      onExited: {
-        root.popupHovered = false
-        // hideTimer.restart()
-        root.closeTimer.restart()
-      }
-      // let clicks through to the arrows / days
-      propagateComposedEvents: true
-      onClicked: (mouse) => { mouse.accepted = false }
-    }
-
-    // Timer {
-    //   id: hideTimer
-    //   interval: 250
-    //   onTriggered: {
-    //     // Only close if the mouse is no longer over the calendar
-    //     // (Time.qml will re-open it if you move back to the clock)
-    //     if (!root.popupHovered)
-    //       root.show = false
-    //   }
-    // }
 
     ColumnLayout {
       anchors.fill: parent
@@ -163,21 +163,11 @@ PopupWindow {
                   && root.viewDate.getFullYear() === today.getFullYear()
             }
 
-            // color: {
-            //   if (!modelData.current) return "transparent"
-            //   const today = new Date()
-            //   if (modelData.day === today.getDate()
-            //       && root.viewDate.getMonth() === today.getMonth()
-            //       && root.viewDate.getFullYear() === today.getFullYear())
-            //     return "#89b4fa"
-            //   return "transparent"
-            // }
             color: isToday ? "#89b4fa" : "transparent"
 
             Text {
               anchors.centerIn: parent
               text: modelData.current ? modelData.day : ""
-              // color: parent.color === "#89b4fa" ? "#1e1e2e" : "#cdd6f4"
               color: isToday ? "#1e1e2e" : "#cdd6f4"
               font.pixelSize: 12
               font.bold: parent.color === "#89b4fa"

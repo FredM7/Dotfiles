@@ -10,6 +10,10 @@ Text {
 
   text: Qt.formatDateTime(clock.date, "ddd d MMM hh:mm:ss")
 
+  property bool open: false
+  // Prevent the focus-grab clear from immediately closing when the toggle click lands.
+  property bool buttonOwnsClick: false
+
   SystemClock {
     id: clock
     precision: SystemClock.Seconds
@@ -18,35 +22,25 @@ Text {
   Calendar {
     id: cal
     target: timeText
-    closeTimer: closeTimer
+    visible: timeText.open
+    onRequestClose: timeText.open = false
+    onVisibleChanged: {
+      if (!visible)
+        timeText.open = false
+    }
   }
-  
-  property bool timeHovered: false
 
   MouseArea {
     anchors.fill: parent
     hoverEnabled: true
     cursorShape: Qt.PointingHandCursor
-
-    onEntered: {
-      timeText.timeHovered = true
-      cal.viewDate = new Date()   // reset to current month
-      cal.show = true
-    }
-    // onExited: cal.show = false
-    onExited: {
-      timeText.timeHovered = false
-      // small delay so we can move onto the calendar
-      closeTimer.restart()
-    }
-  }
-
-  Timer {
-    id: closeTimer
-    interval: 300
-    onTriggered: {
-      if (!timeText.timeHovered && !cal.popupHovered)
-        cal.show = false
+    onPressed: timeText.buttonOwnsClick = true
+    onReleased: timeText.buttonOwnsClick = false
+    onCanceled: timeText.buttonOwnsClick = false
+    onClicked: {
+      timeText.open = !timeText.open
+      if (timeText.open)
+        cal.viewDate = new Date() // reset to current month when opening
     }
   }
 }
