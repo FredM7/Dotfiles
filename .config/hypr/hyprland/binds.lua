@@ -23,6 +23,14 @@ function binds.load(config) --(mainMod, terminal, fileManager, menu)
   hl.bind(mainMod .. " + Z",         hl.dsp.exec_cmd("quickshell -c launcher ipc call clipboard toggle"))
   hl.bind(mainMod .. " + L",         hl.dsp.exec_cmd("hyprlock"))
 
+  -- Special workspace
+  hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+  hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+
+  -- Scratchpads
+  hl.bind(mainMod .. " + W", hl.dsp.workspace.toggle_special("term"))
+  hl.bind(mainMod .. " + SHIFT + W", hl.dsp.window.move({ workspace = "special:term" }))
+
   -- Arrow keys focus
   hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "l" }))
   hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "r" }))

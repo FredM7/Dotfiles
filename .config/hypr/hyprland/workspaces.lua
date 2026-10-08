@@ -11,9 +11,9 @@ function module.load(mainMod)
   -- 10th workspace (0)
   hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = 10 }))
 
-  -- Special workspace
-  hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-  hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+  -- -- Special workspace
+  -- hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+  -- hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
   -- Mouse wheel
   hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e-1" }))
